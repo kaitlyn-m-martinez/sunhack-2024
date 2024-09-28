@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="sunhack"
-run/main_scene="res://scenes/bed_room.tscn"
+run/main_scene="res://scenes/levels/bed_room.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[global_group]
+
+player=""
+interactable=""
 
 [input]
 

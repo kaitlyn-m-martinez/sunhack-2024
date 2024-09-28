@@ -10,7 +10,7 @@ func get_input():
 	velocity = movement * speed
 	if Input.is_action_pressed("ui_run"):
 		velocity=velocity*2		#run modifier
-	
-func _process(delta):
+		
+func _process(delta):	
 	get_input()
 	move_and_slide()

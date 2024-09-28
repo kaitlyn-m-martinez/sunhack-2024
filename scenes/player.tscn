@@ -1,14 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckc0d2c1bpxia"]
 
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_nxb4o"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_nxb4o"]
 [ext_resource type="Texture2D" uid="uid://daop0rjk8ulji" path="res://sprites/blorbo.png" id="1_yd8ot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87hpv"]
-size = Vector2(8, 16)
+size = Vector2(8, 13)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7pbff"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yd8ot")
+}, {
 "duration": 1.0,
 "texture": ExtResource("1_yd8ot")
 }],
@@ -17,10 +20,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["interactable", "player"]]
 script = ExtResource("1_nxb4o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_87hpv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

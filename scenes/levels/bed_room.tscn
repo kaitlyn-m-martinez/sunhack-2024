@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=4 uid="uid://b7mytiyjibpl0"]
+
+[ext_resource type="Texture2D" uid="uid://bxsuo73sbfu60" path="res://sprites/placeholder_sheet.png" id="1_cw0ty"]
+[ext_resource type="PackedScene" uid="uid://ckc0d2c1bpxia" path="res://scenes/player.tscn" id="2_3v35x"]
+[ext_resource type="PackedScene" uid="uid://cww7ycpv2mb0e" path="res://scenes/items/interactive.tscn" id="3_hprgq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7x833"]
+texture = ExtResource("1_cw0ty")
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_boilu"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_7x833")
+
+[node name="BedRoom" type="Node2D"]
+scale = Vector2(4, 4)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(4, 8)
+
+[node name="Placeholder" type="TileMapLayer" parent="."]
+position = Vector2(0, 0.5)
+tile_map_data = PackedByteArray("AAD7//3/AAABAAAAAAD7//7/AAABAAAAAAD7////AAAAAAAAAAD7/wAAAAABAAAAAAD7/wEAAAABAAAAAAD7/wIAAAABAAAAAAD8//3/AAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wIAAAABAAAAAAD9//3/AAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wIAAAABAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAABAAAAAAD///3/AAAAAAAAAAD///7/AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAABAAAAAAAAAP3/AAAAAAAAAAAAAP7/AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAABAAAAAAABAP3/AAAAAAAAAAABAP7/AAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAABAAAAAAACAP3/AAAAAAAAAAACAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAABAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAABAAAAAAD7//z/AAABAAAAAAD8//z/AAABAAAAAAD9//z/AAABAAAAAAD+//z/AAABAAAAAAD///z/AAABAAAAAAAAAPz/AAABAAAAAAABAPz/AAABAAAAAAACAPz/AAABAAAAAAADAPz/AAABAAAAAAAEAPz/AAABAAAAAAAEAP3/AAABAAAAAAAEAP7/AAABAAAAAAAEAP//AAABAAAAAAAEAAAAAAABAAAAAAAEAAEAAAABAAAAAAAEAAIAAAABAAAAAAD6////AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_boilu")
+
+[node name="doorL" parent="." instance=ExtResource("3_hprgq")]
+position = Vector2(-88.5, -7.25)
+
+[node name="Player" parent="." instance=ExtResource("2_3v35x")]
+position = Vector2(-5.25, -5)
+
+[connection signal="body_entered" from="doorL" to="doorL" method="_on_body_entered"]
+[connection signal="body_exited" from="doorL" to="doorL" method="_on_body_exited"]
