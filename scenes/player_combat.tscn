@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://coat6ei1sfimy"]
+
+[ext_resource type="Script" path="res://scripts/player_combat.gd" id="1_v88t8"]
+[ext_resource type="Texture2D" uid="uid://ypuslffaylvu" path="res://sprites/runner1.png" id="2_twvv2"]
+[ext_resource type="Texture2D" uid="uid://bnvmkvoay6iq" path="res://sprites/runner2.png" id="3_84evr"]
+[ext_resource type="Texture2D" uid="uid://r5s78h5r8hmj" path="res://sprites/runner3.png" id="4_i7uu6"]
+[ext_resource type="Texture2D" uid="uid://coxc61mxg5cal" path="res://sprites/runner4.png" id="5_oo12h"]
+[ext_resource type="Texture2D" uid="uid://367h6y1lvuar" path="res://sprites/light.png" id="6_udjmk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c2lof"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_twvv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_84evr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_i7uu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oo12h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_extbl"]
+size = Vector2(5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykxf3"]
+size = Vector2(7, 14)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_v88t8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c2lof")
+autoplay = "default"
+frame_progress = 0.489044
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_extbl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_ykxf3")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0, 0.631614, 0.608912, 1)
+energy = 5.74
+range_z_min = -4096
+range_z_max = 4096
+shadow_enabled = true
+shadow_color = Color(0.0819055, 9.2411e-06, 0.370809, 0.8)
+texture = ExtResource("6_udjmk")
+texture_scale = 0.3
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

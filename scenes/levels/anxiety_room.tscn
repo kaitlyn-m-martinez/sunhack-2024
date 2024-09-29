@@ -27,9 +27,11 @@ tile_set = SubResource("TileSet_boilu")
 
 [node name="doorL" parent="." instance=ExtResource("2_ac67d")]
 position = Vector2(-88, -7.5)
+target = "res://scenes/levels/depression_room.tscn"
 
 [node name="doorR" parent="." instance=ExtResource("2_ac67d")]
 position = Vector2(88.25, -7.5)
+target = "res://scenes/levels/bed_room.tscn"
 
 [node name="Player" parent="." instance=ExtResource("3_48qjs")]
 position = Vector2(57.75, -7.5)

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvar48yk5yods"]
+
+[ext_resource type="PackedScene" uid="uid://coat6ei1sfimy" path="res://scenes/player_combat.tscn" id="1_6y7pb"]
+[ext_resource type="PackedScene" uid="uid://ca4ah76dp1bp8" path="res://scripts/obstacle.tscn" id="2_pt25i"]
+[ext_resource type="Script" path="res://scripts/catcher.gd" id="3_hucwj"]
+[ext_resource type="AudioStream" uid="uid://d037q2drs3phk" path="res://audio/sfx.wav" id="4_5vt1p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2opq"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_6y7pb")]
+position = Vector2(-96, 8)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(40, 0)
+zoom = Vector2(4, 4)
+
+[node name="Obstacle" parent="." instance=ExtResource("2_pt25i")]
+position = Vector2(232, 0)
+
+[node name="Catcher" type="Area2D" parent="." groups=["obstacle"]]
+position = Vector2(-144, 0)
+scale = Vector2(1, 19.48)
+script = ExtResource("3_hucwj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Catcher"]
+shape = SubResource("RectangleShape2D_f2opq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5vt1p")
+volume_db = 3.877
+autoplay = true
+
+[connection signal="area_entered" from="Catcher" to="Catcher" method="_on_area_entered"]

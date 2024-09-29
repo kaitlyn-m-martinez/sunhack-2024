@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckc0d2c1bpxia"]
+[gd_scene load_steps=8 format=3 uid="uid://ckc0d2c1bpxia"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_nxb4o"]
-[ext_resource type="Texture2D" uid="uid://daop0rjk8ulji" path="res://sprites/blorbo.png" id="1_yd8ot"]
+[ext_resource type="Texture2D" uid="uid://dblu66xxfdkl3" path="res://sprites/character1.png" id="2_2cuq2"]
+[ext_resource type="Texture2D" uid="uid://q43mqnqo2it" path="res://sprites/character2.png" id="3_yqkyy"]
+[ext_resource type="Texture2D" uid="uid://bvtv5cqwcx08a" path="res://sprites/character3.png" id="4_6nvjb"]
+[ext_resource type="Texture2D" uid="uid://c3kjovg5xqghs" path="res://sprites/character4.png" id="5_c6aic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87hpv"]
 size = Vector2(8, 13)
@@ -10,13 +13,34 @@ size = Vector2(8, 13)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_yd8ot")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_yd8ot")
+"texture": ExtResource("2_2cuq2")
 }],
 "loop": true,
-"name": &"default",
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yqkyy")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6nvjb")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_c6aic")
+}],
+"loop": true,
+"name": &"up",
 "speed": 5.0
 }]
 
@@ -29,3 +53,4 @@ shape = SubResource("RectangleShape2D_87hpv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7pbff")
+animation = &"down"

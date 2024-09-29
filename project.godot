@@ -18,12 +18,13 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalManager="*res://scripts/global_manager.gd"
-DialogManager="*res://scripts/dialog_manager.gd"
+ObstacleManager="*res://scripts/obstacle_manager.gd"
 
 [global_group]
 
 player=""
 interactable=""
+obstacle=""
 
 [input]
 
@@ -39,4 +40,4 @@ ui_run={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.0176343, 1.44392e-07, 0.196718, 1)
+environment/defaults/default_clear_color=Color(0.120015, 8.21532e-05, 0.175254, 1)

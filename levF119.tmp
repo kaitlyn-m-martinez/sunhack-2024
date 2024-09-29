@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvar48yk5yods"]
+
+[ext_resource type="PackedScene" uid="uid://coat6ei1sfimy" path="res://player.tscn" id="1_6y7pb"]
+[ext_resource type="PackedScene" uid="uid://ca4ah76dp1bp8" path="res://obstacle.tscn" id="2_pt25i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_or0mx"]
+size = Vector2(8, 160)
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" parent="." groups=["obstacle"] instance=ExtResource("1_6y7pb")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(40, 0)
+zoom = Vector2(4, 4)
+
+[node name="Obstacle" parent="." instance=ExtResource("2_pt25i")]
+position = Vector2(232, 0)
+
+[node name="Catcher" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Catcher"]
+position = Vector2(-116, 0)
+shape = SubResource("RectangleShape2D_or0mx")
+
+[connection signal="body_entered" from="Catcher" to="Player" method="_on_catcher_body_entered"]

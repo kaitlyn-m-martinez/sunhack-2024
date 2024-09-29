@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://b7mytiyjibpl0"]
+[gd_scene load_steps=9 format=4 uid="uid://b7mytiyjibpl0"]
 
 [ext_resource type="Texture2D" uid="uid://bxsuo73sbfu60" path="res://sprites/placeholder_sheet.png" id="1_cw0ty"]
 [ext_resource type="PackedScene" uid="uid://ckc0d2c1bpxia" path="res://scenes/player.tscn" id="2_3v35x"]
 [ext_resource type="PackedScene" uid="uid://cww7ycpv2mb0e" path="res://scenes/items/door.tscn" id="3_hprgq"]
-[ext_resource type="PackedScene" uid="uid://dsdji7u8f3ygt" path="res://scenes/items/textbox_interactable.tscn" id="4_dun76"]
+[ext_resource type="PackedScene" uid="uid://dwx07auacwype" path="res://scenes/items/collision_object.tscn" id="3_ro8nj"]
+[ext_resource type="Texture2D" uid="uid://dqa8xvptw5hlv" path="res://sprites/bedroom1.png" id="4_kkyx8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7x833"]
 texture = ExtResource("1_cw0ty")
@@ -14,6 +15,17 @@ texture = ExtResource("1_cw0ty")
 [sub_resource type="TileSet" id="TileSet_boilu"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7x833")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ocrm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kkyx8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="BedRoom" type="Node2D"]
 scale = Vector2(4, 4)
@@ -29,8 +41,14 @@ tile_set = SubResource("TileSet_boilu")
 [node name="doorL" parent="." instance=ExtResource("3_hprgq")]
 position = Vector2(-87.75, -7.25)
 
-[node name="textbox_interactable" parent="." instance=ExtResource("4_dun76")]
-position = Vector2(49.5, -22.25)
+[node name="CollisionObject" parent="." instance=ExtResource("3_ro8nj")]
+position = Vector2(-5.25, -5)
+
+[node name="AnimatedSprite2D" parent="CollisionObject" index="0"]
+position = Vector2(61.5, -34.75)
+sprite_frames = SubResource("SpriteFrames_4ocrm")
 
 [node name="Player" parent="." instance=ExtResource("2_3v35x")]
-position = Vector2(-5.25, -5)
+position = Vector2(-22.5, -5)
+
+[editable path="CollisionObject"]
