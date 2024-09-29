@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cww7ycpv2mb0e"]
+[gd_scene load_steps=5 format=3 uid="uid://dsdji7u8f3ygt"]
 
-[ext_resource type="Script" path="res://scripts/door.gd" id="1_sexqh"]
-[ext_resource type="Texture2D" uid="uid://b1rcrifc4yb8n" path="res://sprites/door_placeholder.png" id="2_8ebge"]
+[ext_resource type="Script" path="res://scripts/textbox_interactable.gd" id="1_4vb3y"]
+[ext_resource type="Texture2D" uid="uid://b1rcrifc4yb8n" path="res://sprites/door_placeholder.png" id="2_qu0lu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nbgw5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_8ebge")
+"texture": ExtResource("2_qu0lu")
 }],
 "loop": true,
 "name": &"default",
@@ -17,8 +17,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ku58"]
 size = Vector2(16, 16)
 
-[node name="door" type="Area2D" groups=["interactable", "player"]]
-script = ExtResource("1_sexqh")
+[node name="textbox_interactable" type="Area2D" groups=["interactable"]]
+script = ExtResource("1_4vb3y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nbgw5")

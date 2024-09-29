@@ -20,4 +20,3 @@ func _on_body_exited(body):
 	if body.is_in_group("player"):
 		activate=false
 		print("unready")
-		

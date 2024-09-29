@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://dylhoov4yetc"]
 
 [ext_resource type="Texture2D" uid="uid://bxsuo73sbfu60" path="res://sprites/placeholder_sheet.png" id="1_0awom"]
-[ext_resource type="PackedScene" uid="uid://cww7ycpv2mb0e" path="res://scenes/items/interactive.tscn" id="2_3m1g5"]
+[ext_resource type="PackedScene" uid="uid://cww7ycpv2mb0e" path="res://scenes/items/door.tscn" id="2_3m1g5"]
 [ext_resource type="PackedScene" uid="uid://ckc0d2c1bpxia" path="res://scenes/player.tscn" id="3_ricf8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7x833"]
