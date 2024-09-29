@@ -8,7 +8,7 @@ func _activate():
 	get_tree().change_scene_to_file(target)
 
 func _input(event):
-	if activate and Input.is_action_just_pressed("ui_accept"):
+	if activate:
 		_activate()
 		
 func _on_body_entered(body):

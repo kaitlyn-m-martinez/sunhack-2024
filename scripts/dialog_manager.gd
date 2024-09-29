@@ -41,10 +41,12 @@ func delete_textbox():
 	else:
 		current_id=-1
 		current_index=-1
+		GlobalManager.player_state=GlobalManager.PLAYER_STATES.FREE
 		
 		
 func create_textbox(id):
 	if id != str(current_id):
+		GlobalManager.player_state=GlobalManager.PLAYER_STATES.FROZEN
 		current_id=id
 		current_index=0
 	var text_box = TEXT_BOX.instantiate()

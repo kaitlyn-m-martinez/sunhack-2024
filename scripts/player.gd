@@ -18,8 +18,10 @@ func set_animation(movement):
 func get_input():
 	movement = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	movement = movement.normalized()
-	
-	velocity = movement * speed
+	if GlobalManager.player_state==GlobalManager.PLAYER_STATES.FROZEN:
+		velocity=Vector2.ZERO
+	else:
+		velocity = movement * speed
 	if Input.is_action_pressed("ui_run"):
 		velocity=velocity*2		#run modifier
 	set_animation(movement)
