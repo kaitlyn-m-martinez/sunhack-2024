@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs6o3mkfyiefb"]
+
+[ext_resource type="Script" path="res://scripts/interactive.gd" id="1_3smlh"]
+[ext_resource type="Texture2D" uid="uid://b1rcrifc4yb8n" path="res://sprites/door_placeholder.png" id="2_2yqpo"]
+[ext_resource type="PackedScene" uid="uid://dwx07auacwype" path="res://scenes/items/collision_object.tscn" id="3_6h77c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nbgw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2yqpo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ku58"]
+size = Vector2(16, 16)
+
+[node name="interactable" type="Area2D" groups=["interactable", "player"]]
+script = ExtResource("1_3smlh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nbgw5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1ku58")
+
+[node name="CollisionObject" parent="." instance=ExtResource("3_6h77c")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+
+[editable path="CollisionObject"]

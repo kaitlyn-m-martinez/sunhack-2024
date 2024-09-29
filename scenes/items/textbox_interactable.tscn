@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpn1hl5fwrxya"]
+
+[ext_resource type="Script" path="res://scripts/textbox_interactable.gd" id="1_4vb3y"]
+[ext_resource type="Texture2D" uid="uid://b1rcrifc4yb8n" path="res://sprites/door_placeholder.png" id="2_qu0lu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nbgw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qu0lu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ku58"]
+size = Vector2(16, 16)
+
+[node name="textbox_interactable" type="Area2D" groups=["interactable"]]
+script = ExtResource("1_4vb3y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nbgw5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1ku58")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

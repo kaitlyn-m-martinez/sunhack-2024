@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvar48yk5yods"]
 
 [ext_resource type="PackedScene" uid="uid://coat6ei1sfimy" path="res://scenes/player_combat.tscn" id="1_6y7pb"]
-[ext_resource type="PackedScene" uid="uid://ca4ah76dp1bp8" path="res://scripts/obstacle.tscn" id="2_pt25i"]
+[ext_resource type="PackedScene" uid="uid://ca4ah76dp1bp8" path="res://obstacles/level1/obstacle.tscn" id="2_pt25i"]
 [ext_resource type="Script" path="res://scripts/catcher.gd" id="3_hucwj"]
 [ext_resource type="AudioStream" uid="uid://d037q2drs3phk" path="res://audio/sfx.wav" id="4_5vt1p"]
 

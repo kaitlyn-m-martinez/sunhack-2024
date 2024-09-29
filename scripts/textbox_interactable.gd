@@ -1,11 +1,15 @@
 extends Area2D 
-class_name Interactable
+
 
 @export var activate=false
-@export var target="res://scenes/levels/anxiety_room.tscn"
+@export var id="trash can"
 
 func _activate():
-	get_tree().change_scene_to_file(target)
+	var root=get_tree()
+	if root.get_nodes_in_group("text_box"):
+		DialogManager.delete_textbox()
+	else:
+		DialogManager.create_textbox(id)
 
 func _input(event):
 	if activate and Input.is_action_just_pressed("ui_accept"):

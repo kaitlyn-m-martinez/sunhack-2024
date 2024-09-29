@@ -19,12 +19,14 @@ config/icon="res://icon.svg"
 
 GlobalManager="*res://scripts/global_manager.gd"
 ObstacleManager="*res://scripts/obstacle_manager.gd"
+DialogManager="*res://scripts/dialog_manager.gd"
 
 [global_group]
 
 player=""
 interactable=""
 obstacle=""
+text_box=""
 
 [input]
 
